@@ -224,9 +224,9 @@ class MailTexts {
               'Usá este codigo en {{url}}/recover-password?email={{to}}&token={{token}} o hacé click en el botón de abajo.',
           ],
           'USER_INVITE' => [
-              'Haz sido invitado - OpenSupports',
-              'Haz sido invitado',
-              'Hola, {{name}}. Haz sido invitado a unirte a nuestro sistema de soporte.',
+              'Has sido invitado - OpenSupports',
+              'Has sido invitado',
+              'Hola, {{name}}. Has sido invitado a unirte a nuestro sistema de soporte.',
               'Usa este código en {{url}}/recover-password?email={{to}}&token={{token}}&invited=true o haz click en el botón de abajo para establecer tu contraseña.'
           ],
           'USER_SYSTEM_DISABLED' => [
