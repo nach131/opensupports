@@ -678,15 +678,26 @@ class TicketViewer extends React.Component {
         return this.props.ticket.author.staff ? SessionStore.getDepartments() : this.getPublicDepartments();
     }
 
+    // showDeleteButton() {
+    //     if(!this.props.ticket.owner) {
+    //         if(this.props.userLevel === 3) return true;
+    //         if(this.props.userId == this.props.ticket.author.id*1) {
+    //             if((this.props.userStaff && this.props.ticket.author.staff) || (!this.props.userStaff && !this.props.ticket.author.staff)){
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
     showDeleteButton() {
-        if(!this.props.ticket.owner) {
+       
             if(this.props.userLevel === 3) return true;
-            if(this.props.userId == this.props.ticket.author.id*1) {
-                if((this.props.userStaff && this.props.ticket.author.staff) || (!this.props.userStaff && !this.props.ticket.author.staff)){
-                    return true;
-                }
-            }
-        }
+            // if(this.props.userId == this.props.ticket.author.id*1) {
+            //     if((this.props.userStaff && this.props.ticket.author.staff) || (!this.props.userStaff && !this.props.ticket.author.staff)){
+            //         return true;
+            //     }
+            // }
+        
         return false;
     }
 }
