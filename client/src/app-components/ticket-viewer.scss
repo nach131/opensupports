@@ -165,8 +165,16 @@
         }
 
     }
+    &__close-button {
+        margin-left: 10px;
+        background-color: #ffa726;
+        &:hover {
+            background-color: #ffcc80;
+        }
+    }
     &__delete-button {
         margin-left: 10px;
+        background-color: #f44336;
     }
 
     @media screen and (max-width: 1151px) {

@@ -316,7 +316,7 @@ class TicketViewer extends React.Component {
                         <div className="ticket-viewer__response-buttons">
                             <SubmitButton type="secondary">{i18n('RESPOND_TICKET')}</SubmitButton>
                             <div>
-                                <Button size="medium" onClick={this.onCloseTicketClick.bind(this)}>{i18n('CLOSE_TICKET')}</Button>
+                                <Button className="ticket-viewer__close-button" size="medium" onClick={this.onCloseTicketClick.bind(this)}>{i18n('CLOSE_TICKET')}</Button>
                                 {(this.showDeleteButton())? <Button className="ticket-viewer__delete-button" size="medium" onClick={this.onDeleteTicketClick.bind(this)}>{i18n('DELETE_TICKET')}</Button> : null}
                             </div>
                         </div>
@@ -677,7 +677,7 @@ class TicketViewer extends React.Component {
     getDepartmentsForTransfer() {
         return this.props.ticket.author.staff ? SessionStore.getDepartments() : this.getPublicDepartments();
     }
-
+// ORIGINAL
     // showDeleteButton() {
     //     if(!this.props.ticket.owner) {
     //         if(this.props.userLevel === 3) return true;
@@ -692,6 +692,7 @@ class TicketViewer extends React.Component {
     showDeleteButton() {
        
             if(this.props.userLevel === 3) return true;
+            // No mostrar boton en el cliente
             // if(this.props.userId == this.props.ticket.author.id*1) {
             //     if((this.props.userStaff && this.props.ticket.author.staff) || (!this.props.userStaff && !this.props.ticket.author.staff)){
             //         return true;

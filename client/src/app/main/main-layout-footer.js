@@ -7,10 +7,10 @@ class MainLayoutFooter extends React.Component {
     render() {
         return (
             <div className={this.getClass()}>
-                {this.props.adminPanelOpened ? this.renderExtraLinks() : null}
+                {/* {this.props.adminPanelOpened ? this.renderExtraLinks() : null} */}
                 <div className="main-layout-footer__powered">
-                    Powered by <a className="main-layout-footer__os-link" href="http://www.opensupports.com/" target="_blank">OpenSupports</a>
-                    <span> {this.props.adminPanelOpened ? `v${opensupports_version}` : null}</span>
+                    Hecho <a className="main-layout-footer__os-link" href="http://www.enunpimpam.com/" target="_blank">enunpimpam</a>
+                    {/* <span> {this.props.adminPanelOpened ? `v${opensupports_version}` : null}</span> */}
                 </div>
             </div>
         );

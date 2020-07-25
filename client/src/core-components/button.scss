@@ -17,7 +17,7 @@
         background-color: $primary-red;
 
         &:focus, &:hover {
-            background-color: lighten($primary-red, 5%);
+            background-color: lighten($primary-red, 10%);
             outline: none;
         }
 
@@ -32,7 +32,7 @@
         background-color: $primary-green;
 
         &:focus, &:hover {
-            background-color: lighten($primary-green, 5%);
+            background-color: lighten($primary-green, 10%);
             outline: none;
         }
 
@@ -46,7 +46,7 @@
         background-color: $secondary-blue;
 
         &:focus, &:hover {
-            background-color: lighten($secondary-blue, 5%);
+            background-color: lighten($secondary-blue, 10%);
             outline: none;
         }
 

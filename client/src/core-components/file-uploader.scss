@@ -15,7 +15,7 @@
         display: inline-block;
         cursor: pointer;
         color: white;
-        background-color: $primary-red;
+        background-color: #1e88e5;
         line-height: 35px;
         padding: 0 15px;
     }
@@ -25,7 +25,12 @@
     }
 
     &__value {
-        margin-left: 10px;
-        color: $dark-grey;
+        // margin-left: 10px;
+        // color: $dark-grey;
+        padding: 0 15px;
+        color: #1d88e5;
+        line-height: 35px;
+        display: inline-block;
+        background: #eeeeee;
     }
 }
