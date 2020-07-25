@@ -244,25 +244,25 @@ class MailTexts {
           'TICKET_CREATED' => [
               '#{{ticketNumber}} Ticket creado - soporte.enunpimpam.com',
               'Ticket creado',
-              'Hola, {{name}}. Has creado un nuevo ticket titulado <i>{{title}}</i> en nuestro sistema de soporte.',
+              'Hola, {{name}}. Has creado un nuevo ticket en nuestro sistema de soporte titulado <h6>{{title}}</h6>.',
               'Puedes ver el ticket usando el numero de ticket prensentado abajo o puedes hacer click en el botón de más abajo.',
           ],
           'TICKET_RESPONDED' => [
               '#{{ticketNumber}} Nueva respuesta - soporte.enunpimpam.com',
               'Nueva respuesta',
-              'Hola, {{name}}. Has recibido una nueva respuesta en tu ticket titulado <i>{{title}}</i>.',
+              'Hola, {{name}}. Has recibido una nueva respuesta en tu ticket titulado <h6>{{title}}</h6>.',
               'Por favor, has click abajo para ver la respuesta.'
           ],
           'TICKET_CLOSED' => [
               '#{{ticketNumber}} Ticket cerrado - soporte.enunpimpam.com',
               'Ticket cerrado',
-              'Hola, {{name}}. Un ticket que enviaste titulado <i>{{title}}</i> ha sido cerrado.',
+              'Hola, {{name}}. Ha sido cerrado un ticket que enviaste titulado <h6>{{title}}</h6>.',
               'Puedes acceder al ticket por su numero de ticket o haciendo click en el botón de abajo.'
           ],
           'TICKET_CREATED_STAFF' => [
               '#{{ticketNumber}} Ticket creado - soporte.enunpimpam.com',
               'Ticket creado',
-              'El usuario {{name}} ha creado un nuevo ticket titulado <i>{{title}}</i>.',
+              'El usuario {{name}} ha creado un nuevo ticket titulado <h6>{{title}}</h6>.',
               'Puedes ver el ticket usando el numero de ticket prensentado abajo.',
           ],
         ],
