@@ -202,65 +202,65 @@ class MailTexts {
         ],
         'es' => [
           'USER_SIGNUP' => [
-              'Registrado {{to}} - OpenSupports',
+              'Registrado {{to}} - soporte.enunpimpam.com',
               'Verifica tu cuenta',
               'Bienvenido a nuestro contro de soporte, {{name}}!. Necesitamos que verifiques este email para poder acceder a tu cuenta.',
               'Usá este código en {{url}}/verify-token/{{to}}/{{verificationToken}} o hacé click en el botón de abajo.',
           ],
           'USER_PASSWORD' => [
-              'Contraseña a cambiado - OpenSupports',
+              'Contraseña ha cambiado - soporte.enunpimpam.com',
               'Contraseña cambiada',
-              'Hola, {{name}}. Queremos informate que tu contraseña a sido cambiada desde el panel de usuario.'
+              'Hola, {{name}}. Queremos informate que tu contraseña ha sido cambiada desde el panel de usuario.'
           ],
           'USER_EMAIL' => [
-              'Email a cambiado - OpenSupports',
-              'Email a cambiado',
+              'Email ha cambiado - soporte.enunpimpam.com',
+              'Email ha cambiado',
               'Hola, {{name}}. Queremos informate que tu email ha cambiado a {{newemail}} desde el panel de control.'
           ],
           'PASSWORD_FORGOT' => [
-              'Recuperar contraseña - OpenSupports',
+              'Recuperar contraseña - soporte.enunpimpam.com',
               'Recuperar contraseña',
               'Hola, {{name}}. Has requerido recuperar tu contraseña.',
               'Usá este codigo en {{url}}/recover-password?email={{to}}&token={{token}} o hacé click en el botón de abajo.',
           ],
           'USER_INVITE' => [
-              'Has sido invitado - OpenSupports',
+              'Has sido invitado - soporte.enunpimpam.com',
               'Has sido invitado',
               'Hola, {{name}}. Has sido invitado a unirte a nuestro sistema de soporte.',
               'Usa este código en {{url}}/recover-password?email={{to}}&token={{token}}&invited=true o haz click en el botón de abajo para establecer tu contraseña.'
           ],
           'USER_SYSTEM_DISABLED' => [
-              'Sistema de acceso cambiado - OpenSupports',
+              'Sistema de acceso cambiado - soporte.enunpimpam.com',
               'Sistema de acceso cambiado',
               'Hola, {{name}}. El sistema para acceder a los tickets ha cambiado.',
               'Ahora podes acceder a los tickets usando tu email y el numero de ticket.Hacé click en el botón de abajo para poder ver los tickets.',
           ],
           'USER_SYSTEM_ENABLED' => [
-              'Cuenta creada - OpenSupports',
+              'Cuenta creada - soporte.enunpimpam.com',
               'Cuenta creada',
               'Hola, {{name}}. Hemos creado una cuenta donde puedes acceder a los tickets que nos has enviado.',
               'Puedes acceder usando tu email <i>({{to}})</i> y el la contraseña de abajo.Por favor, cambia tu contraseña tan pronto como ingreses al panel de usuario.',
           ],
           'TICKET_CREATED' => [
-              '#{{ticketNumber}} Ticket creado - OpenSupports',
+              '#{{ticketNumber}} Ticket creado - soporte.enunpimpam.com',
               'Ticket creado',
               'Hola, {{name}}. Has creado un nuevo ticket titulado <i>{{title}}</i> en nuestro sistema de soporte.',
               'Puedes ver el ticket usando el numero de ticket prensentado abajo o puedes hacer click en el botón de más abajo.',
           ],
           'TICKET_RESPONDED' => [
-              '#{{ticketNumber}} Nueva respuesta - OpenSupports',
+              '#{{ticketNumber}} Nueva respuesta - soporte.enunpimpam.com',
               'Nueva respuesta',
               'Hola, {{name}}. Has recibido una nueva respuesta en tu ticket titulado <i>{{title}}</i>.',
               'Por favor, has click abajo para ver la respuesta.'
           ],
           'TICKET_CLOSED' => [
-              '#{{ticketNumber}} Ticket cerrado - OpenSupports',
+              '#{{ticketNumber}} Ticket cerrado - soporte.enunpimpam.com',
               'Ticket cerrado',
               'Hola, {{name}}. Un ticket que enviaste titulado <i>{{title}}</i> ha sido cerrado.',
               'Puedes acceder al ticket por su numero de ticket o haciendo click en el botón de abajo.'
           ],
           'TICKET_CREATED_STAFF' => [
-              '#{{ticketNumber}} Ticket creado - OpenSupports',
+              '#{{ticketNumber}} Ticket creado - soporte.enunpimpam.com',
               'Ticket creado',
               'El usuario {{name}} ha creado un nuevo ticket titulado <i>{{title}}</i>.',
               'Puedes ver el ticket usando el numero de ticket prensentado abajo.',
