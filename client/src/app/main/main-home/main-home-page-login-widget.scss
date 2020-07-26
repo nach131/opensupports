@@ -19,7 +19,11 @@
         margin-top: 18px;
     }
 }
+.login-widget__container {
 
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+
+}
 @media screen and (min-width: 379px) {
     .login-widget__container {
         min-width: 324px;
