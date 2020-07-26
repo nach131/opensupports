@@ -18,9 +18,13 @@
     &__message {
         margin-top: 18px;
     }
+    &__submit-button {
+        margin-top: 48px;
+
+    }
 }
 .login-widget__container {
-
+    min-height: 412px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
 
 }
@@ -44,9 +48,11 @@
 
 @media screen and (max-width: 992px) {
     .login-widget__container {
+
         width: 100%;
     }
     .main-home-page__widget {
+
         width: 100%;
     }
 }
