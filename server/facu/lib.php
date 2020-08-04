@@ -49,8 +49,34 @@ function ticketAsignadosYCerradosPorID($idTicket) {
 
   $sql = 'SELECT t.id id_ticket, t.ticket_number, t.date date_created, te.* 
           FROM `ticket` t
+            LEFT JOIN `tag_ticket` tt ON t.id = tt.ticket_id
             LEFT JOIN `ticketevent` te ON t.id = te.ticket_id
             WHERE 
+              tt.tag_id != 3
+                AND
+              te.type IN ("ASSIGN", "CLOSE")
+                AND
+                t.id IN (' . $idTicket . ')
+            ORDER BY 
+              te.id ASC';
+  $result = $conn->query($sql);
+
+  return $result;
+}
+
+// EN PROCESO
+function ticketFacturadosPorID($idTicket) {
+  $conn = bbddConnect();
+
+
+
+  $sql = 'SELECT t.id id_ticket, t.ticket_number, t.date date_created, te.* 
+          FROM `ticket` t
+            LEFT JOIN `tag_ticket` tt ON t.id = tt.ticket_id
+            LEFT JOIN `ticketevent` te ON t.id = te.ticket_id
+            WHERE 
+              tt.tag_id = 3
+                AND
               te.type IN ("ASSIGN", "CLOSE")
                 AND
                 t.id IN (' . $idTicket . ')
