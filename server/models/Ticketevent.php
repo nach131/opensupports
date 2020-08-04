@@ -23,6 +23,7 @@ class Ticketevent extends DataStore {
     const ASSIGN = 'ASSIGN';
     const UN_ASSIGN = 'UN_ASSIGN';
     const CLOSE = 'CLOSE';
+    const PAUSE = 'PAUSE';
     const RE_OPEN = 'RE_OPEN';
     const DEPARTMENT_CHANGED = 'DEPARTMENT_CHANGED';
 
@@ -32,6 +33,7 @@ class Ticketevent extends DataStore {
             'ASSIGN',
             'UN_ASSIGN',
             'CLOSE',
+            'PAUSE',
             'RE_OPEN',
             'DEPARTMENT_CHANGED',
         ];

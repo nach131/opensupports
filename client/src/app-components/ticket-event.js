@@ -19,6 +19,7 @@ class TicketEvent extends React.Component {
             'ASSIGN',
             'UN_ASSIGN',
             'CLOSE',
+            'PAUSE',
             'RE_OPEN',
             'DEPARTMENT_CHANGED',
         ]),
@@ -81,6 +82,7 @@ class TicketEvent extends React.Component {
             'ASSIGN': this.renderAssignment.bind(this),
             'UN_ASSIGN': this.renderUnAssignment.bind(this),
             'CLOSE': this.renderClosed.bind(this),
+            'PAUSE': this.renderPaused.bind(this),
             'RE_OPEN': this.renderReOpened.bind(this),
             'DEPARTMENT_CHANGED': this.renderDepartmentChange.bind(this),
         };
@@ -182,6 +184,16 @@ class TicketEvent extends React.Component {
         )
     }
 
+    renderPaused() {
+        return (
+            <div className="ticket-event__circled">
+                <span className="ticket-event__circled-author">{this.props.author.name}</span>
+                <span className="ticket-event__circled-text"> {i18n('ACTIVITY_CLOSE_THIS')}</span>
+                <span className="ticket-event__circled-date"> {i18n('DATE_PREFIX')} {DateTransformer.transformToString(this.props.date)}</span>
+            </div>
+        )
+    }
+    
     renderReOpened() {
         return (
             <div className="ticket-event__circled">
@@ -255,6 +267,7 @@ class TicketEvent extends React.Component {
             'ASSIGN': true,
             'UN_ASSIGN': true,
             'CLOSE': true,
+            'PAUSE': true,
             'RE_OPEN': true,
             'DEPARTMENT_CHANGED': true,
         };
@@ -265,6 +278,7 @@ class TicketEvent extends React.Component {
             'ticket-event_circled': circledTypes[this.props.type],
             'ticket-event_unassignment': this.props.type === 'UN_ASSIGN',
             'ticket-event_close': this.props.type === 'CLOSE',
+            'ticket-event_pause': this.props.type === 'PAUSE',
             'ticket-event_reopen': this.props.type === 'RE_OPEN',
             'ticket-event_department': this.props.type === 'DEPARTMENT_CHANGED',
             'ticket-event_private': this.props.private*1,
@@ -279,6 +293,7 @@ class TicketEvent extends React.Component {
             'ASSIGN': 'user',
             'UN_ASSIGN': 'user-times',
             'CLOSE': 'lock',
+            'PAUSE': 'lock',
             'RE_OPEN': 'unlock-alt',
             'DEPARTMENT_CHANGED': 'exchange',
         };
@@ -287,6 +302,7 @@ class TicketEvent extends React.Component {
             'ASSIGN': 'lg',
             'UN_ASSIGN': 'lg',
             'CLOSE': 'lg',
+            'PAUSE': 'lg',
             'RE_OPEN': 'lg',
             'DEPARTMENT_CHANGED': 'lg',
         };

@@ -17,8 +17,12 @@ if(defined('MYSQL_HOST') && defined('MYSQL_DATABASE') && defined('MYSQL_USER') &
 \Slim\Slim::registerAutoLoader();
 $app = new \Slim\Slim();
 
+// include_once 'controllers/ticket/pause.php';
+
 // LOAD CONTROLLERS
 foreach (glob('controllers/*.php') as $controller) {
+    // echo 'TEST';
+    // echo $controller . PHP_EOL;
     include_once $controller;
 }
 

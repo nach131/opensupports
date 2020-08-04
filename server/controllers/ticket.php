@@ -13,6 +13,8 @@ $ticketControllers->addController(new DeleteCustomResponseController);
 $ticketControllers->addController(new EditCustomResponseController);
 $ticketControllers->addController(new GetCustomResponsesController);
 $ticketControllers->addController(new ChangeDepartmentController);
+include_once 'ticket/pause.php';
+$ticketControllers->addController(new PauseController);
 $ticketControllers->addController(new CloseController);
 $ticketControllers->addController(new ReOpenController);
 $ticketControllers->addController(new SeenController);

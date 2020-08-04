@@ -316,6 +316,7 @@ class TicketViewer extends React.Component {
                         <div className="ticket-viewer__response-buttons">
                             <SubmitButton type="secondary">{i18n('RESPOND_TICKET')}</SubmitButton>
                             <div>
+                                <Button className="ticket-viewer__pause-button" size="medium" onClick={this.onPauseTicketClick.bind(this)}>PAUSAAA</Button>
                                 <Button className="ticket-viewer__close-button" size="medium" onClick={this.onCloseTicketClick.bind(this)}>{i18n('CLOSE_TICKET')}</Button>
                                 {(this.showDeleteButton())? <Button className="ticket-viewer__delete-button" size="medium" onClick={this.onDeleteTicketClick.bind(this)}>{i18n('DELETE_TICKET')}</Button> : null}
                             </div>
@@ -427,6 +428,11 @@ class TicketViewer extends React.Component {
         AreYouSure.openModal(null, this.reopenTicket.bind(this));
     }
 
+    onPauseTicketClick(event) {
+        event.preventDefault();
+        AreYouSure.openModal(null, this.pauseTicket.bind(this));
+    }
+
     onCloseTicketClick(event) {
         event.preventDefault();
         AreYouSure.openModal(null, this.closeTicket.bind(this));
@@ -465,6 +471,15 @@ class TicketViewer extends React.Component {
     reopenTicket() {
         return API.call({
             path: '/ticket/re-open',
+            data: {
+                ticketNumber: this.props.ticket.ticketNumber
+            }
+        }).then(this.onTicketModification.bind(this));
+    }
+
+    pauseTicket() {
+        return API.call({
+            path: '/ticket/pause',
             data: {
                 ticketNumber: this.props.ticket.ticketNumber
             }
