@@ -19,12 +19,12 @@ $usuarios = usuariosConTickets();
       <div class="row py-5">
         <div class="col">
 
-        <h2>Usuarios con tickets</h2>
+        <h2 class="h4 bg-success mb-0 p-4 rounded-top">Usuarios con tickets</h2>
 
         <?php if ( $usuarios->num_rows > 0 ) : ?>
         
-          <table class="table table-striped">
-            <thead>
+          <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>

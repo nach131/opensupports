@@ -21,12 +21,12 @@ $idsTicketsAFacturar = array();
       <div class="row py-5">
         <div class="col">
 
-        <h2>Tickets del usuario <?php echo $_GET['id']; ?></h2>
+        <h2 class="h4 bg-warning mb-0 p-4 rounded-top">Tickets del usuario <?php echo $_GET['id']; ?></h2>
 
         <?php if ( $tickets->num_rows > 0 ) : ?>
         
-          <table class="table table-striped">
-            <thead>
+          <table class="table table-striped table-bordered table-hover ">
+            <thead class="thead-light">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Titulo</th>
@@ -60,7 +60,7 @@ $idsTicketsAFacturar = array();
       <div class="row py-5">
         <div class="col">
 
-        <h2>Facturacion de tickets</h2>
+        <h2 class="h4 bg-warning mb-0 p-4 rounded-top" >Facturacion de tickets</h2>
         <?php
           // nach_print_r($idsTicketsAFacturar);
           $ticketEvents = ticketAsignadosYCerradosPorID(implode(',', $idsTicketsAFacturar));
@@ -94,8 +94,8 @@ $idsTicketsAFacturar = array();
         ?>
 
 
-        <table class="table table-striped">
-            <thead>
+        <table class="table table-striped  table-bordered">
+            <thead class="thead-light">
               <tr>
                 <th scope="col">ID Ticket</th>
                 <th scope="col">Inicio</th>
