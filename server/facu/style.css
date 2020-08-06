@@ -1,0 +1,16 @@
+.p-4 {
+  padding: 0.6rem!important;
+}
+.table-hover tbody tr:hover {
+  color: #212529;
+  background-color: rgba(0,0,0,.093);
+}
+.thead-bg{
+  background-color: #78909c;
+}
+.table-header {
+  color: white;
+}
+.table td, .table th {
+  padding: .3rem;
+}

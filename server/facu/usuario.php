@@ -10,9 +10,10 @@ $idsTicketsAFacturar = array();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuarios</title>
+  <title>Facturación Usuarios</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   
@@ -25,12 +26,12 @@ $idsTicketsAFacturar = array();
 
         <?php if ( $tickets->num_rows > 0 ) : ?>
         
-          <table class="table table-striped table-bordered table-hover ">
-            <thead class="thead-light">
+          <table class="table table-striped table-hover ">
+            <thead class="thead-bg">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Fecha</th>
+                <th class="table-header" scope="col">Nº Ticket</th>
+                <th class="table-header" scope="col">Título</th>
+                <th class="table-header" scope="col">Fecha</th>
               </tr>
             </thead>
             <tbody>
@@ -38,11 +39,14 @@ $idsTicketsAFacturar = array();
               while($ticket = $tickets->fetch_assoc() ) : 
               // nach_print_r($ticket);  
               $idsTicketsAFacturar[] = $ticket['id'];
+              $fechaApertura = date('Y-m-d', strtotime($ticket['date']));
+              // nach_print_r($fechaApertura);  
+
             ?>
               <tr>
                 <th scope="row"><?php echo $ticket['ticket_number']; ?></th>
                 <td><?php echo $ticket['title']; ?></td>
-                <td><?php echo $ticket['date']; ?></td>
+                <td><?php echo $fechaApertura; ?></td>
               </tr>
             <?php endwhile; ?>
             </tbody>
@@ -60,7 +64,7 @@ $idsTicketsAFacturar = array();
       <div class="row py-5">
         <div class="col">
 
-        <h2 class="h4 bg-warning mb-0 p-4 rounded-top" >Facturacion de tickets</h2>
+        <h2 class="h4 bg-warning mb-0 p-4 rounded-top" >Facturación de tickets</h2>
         <?php
           // nach_print_r($idsTicketsAFacturar);
           $ticketEvents = ticketAsignadosYCerradosPorID(implode(',', $idsTicketsAFacturar));
@@ -90,16 +94,20 @@ $idsTicketsAFacturar = array();
           $fin = strtotime($intervalo['CLOSE']);
 
           $tiempo_invertido = $tiempo_invertido + ($fin - $inicio);
+
+
+
         }
         ?>
 
 
-        <table class="table table-striped  table-bordered">
-            <thead class="thead-light">
+        <table class="table table-striped table-hover">
+            <thead class="thead-bg">
               <tr>
-                <th scope="col">ID Ticket</th>
-                <th scope="col">Inicio</th>
-                <th scope="col">Fin</th>
+                <th class="table-header" scope="col">Nº Ticket</th>
+                <th class="table-header" scope="col">Inicio</th>
+                <th class="table-header" scope="col">Fin</th>
+                <th class="table-header" scope="col">Tiempo</th>
               </tr>
             </thead>
             <tbody>
@@ -107,17 +115,34 @@ $idsTicketsAFacturar = array();
               foreach ($intervalos as $ticketNumber => $intervalo) :
                 $inicio = date('Y-m-d H:i', strtotime($intervalo['ASSIGN']));
                 $fin = date('Y-m-d H:i', strtotime($intervalo['CLOSE']));
+                $inicioHora = date('H:i', strtotime($intervalo['ASSIGN']));
+                $finHora = date('H:i', strtotime($intervalo['CLOSE']));
+                // $tiempoHoras = $finHora - $inicioHora;
+
+                $dateInicio = new DateTime($inicio);
+                $dateFin = new DateTime($fin);
+                $tiempoTotal = date_diff($dateFin, $dateInicio);
+
+
+                // nach_print_r($inicioHora);
+                // nach_print_r($finHora);
+                // nach_print_r($tiempoHoras) ;
+                // nach_print_r($tiempoTotal->format('%h:%i')) ;
+
+
             ?>
               <tr>
                 <th scope="row"><?php echo $ticketNumber; ?></th>
                 <td><?php echo $inicio; ?></td>
                 <td><?php echo $fin; ?></td>
+                <td><?php echo $tiempoTotal->format('%h:%i'); ?></td>
               </tr>
             <?php endforeach; ?>
             <tfoot>
               <tr>
-                <td colspan="2">Tiempo invertido (en horas)</td>
-                <td><?php echo $tiempo_invertido / 3600; ?></td>
+                <td colspan="3">Tiempo invertido (en horas)</td>
+                <!-- <td><?php echo $tiempo_invertido / 3600; ?></td> -->
+                <td><?php echo date('H:i', $tiempo_invertido); ?></td>
               </tr>
             </tfoot>
             </tbody>
