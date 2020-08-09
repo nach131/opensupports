@@ -79,7 +79,6 @@ $idsTicketsAFacturar = array();
           // nach_print_r($idsTicketsAFacturar);
           $ticketEvents = ticketAsignadosYCerradosPorID(implode(',', $idsTicketsAFacturar));
           // nach_print_r($ticketEvents);
-
           $intervalos = array();
         ?>
 
@@ -88,9 +87,10 @@ $idsTicketsAFacturar = array();
           while($ticketEvent = $ticketEvents->fetch_assoc() ) {
             // $intervalos[$ticketEvent['id_ticket']][$ticketEvent['type']] = $ticketEvent['date'];
             $intervalos[$ticketEvent['ticket_number']][$ticketEvent['type']] = $ticketEvent['date'];
+          // nach_print_r($intervalos);
+
           }
         }
-        // nach_print_r($intervalos);
         ?>
 
         <?php
@@ -105,13 +105,10 @@ $idsTicketsAFacturar = array();
 
           $tiempo_invertido = $tiempo_invertido + ($fin - $inicio);
 
-
-
         }
         ?>
 
-
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover text-center">
             <thead class="thead-bg">
               <tr>
                 <th class="table-header" scope="col">Nº Ticket</th>
@@ -133,19 +130,14 @@ $idsTicketsAFacturar = array();
                 $dateFin = new DateTime($fin);
                 $tiempoTotal = date_diff($dateFin, $dateInicio);
 
-
-                // nach_print_r($inicioHora);
-                // nach_print_r($finHora);
-                // nach_print_r($tiempoHoras) ;
-                // nach_print_r($tiempoTotal->format('%h:%i')) ;
-
+        // nach_print_r($intervalo);
 
             ?>
               <tr>
                 <th scope="row" class="numero"><?php echo $ticketNumber; ?></th>
                 <td><?php echo $inicio; ?></td>
                   <?php if ( $fin === '1970-01-01 00:00'): ?>                  
-                    <td class="tag tag_large"><?php echo 'EN PROCESO'; ?></td>
+                    <td><span class="badge badge-primary">EN PROCESO</span></td>
                     <td><?php echo '---'; ?></td>
                   <?php else: ?>
                     <td><?php echo $fin; ?></td>
@@ -156,7 +148,7 @@ $idsTicketsAFacturar = array();
             <?php endforeach; ?>
             <tfoot>
               <tr class="bg-foot">
-                <td colspan="3">Tiempo invertido (en horas)</td>
+                <td class="text-left" colspan="3">Tiempo invertido (en horas)</td>
                 <td><?php echo date('H:i', $tiempo_invertido); ?></td>
               </tr>
             </tfoot>

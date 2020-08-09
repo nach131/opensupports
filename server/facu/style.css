@@ -1,3 +1,6 @@
+body{
+  line-height: 1!important;
+}
 .p-4 {
   padding: 0.6rem!important;
 }
