@@ -45,16 +45,14 @@ $idsTicketsAFacturar = array();
 
             ?>
               <tr>
-                <th scope="row" class="numero"><?php echo $ticket['ticket_number']; ?></th>
-                <td >    
-                   <?php if (( $ticket['closed'])==='1') : ?>
-                      <span id="candado" class="fa fa-lock fa-sm" ></span>
-                    <?php else: ?>
-                      <span id="candado" class="fa fa-unlock fa-sm" ></span>
-                  <?php endif ?>
-
+                <th scope="row"><?php echo $ticket['ticket_number']; ?></th>
+                <td >
+                  
                   <?php echo $ticket['title']; ?>
-                
+                  <?php echo $ticket['closed']; ?>
+
+
+              </span>
               </td>
                 <td><?php echo $fechaApertura; ?></td>
               </tr>
@@ -81,6 +79,7 @@ $idsTicketsAFacturar = array();
           // nach_print_r($ticketEvents);
 
           $intervalos = array();
+
         ?>
 
         <?php 
@@ -88,8 +87,10 @@ $idsTicketsAFacturar = array();
           while($ticketEvent = $ticketEvents->fetch_assoc() ) {
             // $intervalos[$ticketEvent['id_ticket']][$ticketEvent['type']] = $ticketEvent['date'];
             $intervalos[$ticketEvent['ticket_number']][$ticketEvent['type']] = $ticketEvent['date'];
+            nach_print_r($ticketEvent);
           }
         }
+
         // nach_print_r($intervalos);
         ?>
 
@@ -142,21 +143,16 @@ $idsTicketsAFacturar = array();
 
             ?>
               <tr>
-                <th scope="row" class="numero"><?php echo $ticketNumber; ?></th>
+                <th scope="row"><?php echo $ticketNumber; ?></th>
                 <td><?php echo $inicio; ?></td>
-                  <?php if ( $fin === '1970-01-01 00:00'): ?>                  
-                    <td class="tag tag_large"><?php echo 'EN PROCESO'; ?></td>
-                    <td><?php echo '---'; ?></td>
-                  <?php else: ?>
-                    <td><?php echo $fin; ?></td>
-                    <td><?php echo $tiempoTotal->format('%h:%i'); ?></td>
-                  <?php endif; ?>
-
+                <td><?php echo $fin; ?></td>
+                <td><?php echo $tiempoTotal->format('%h:%i'); ?></td>
               </tr>
             <?php endforeach; ?>
             <tfoot>
-              <tr class="bg-foot">
+              <tr>
                 <td colspan="3">Tiempo invertido (en horas)</td>
+                <!-- <td><?php echo $tiempo_invertido / 3600; ?></td> -->
                 <td><?php echo date('H:i', $tiempo_invertido); ?></td>
               </tr>
             </tfoot>
@@ -174,5 +170,6 @@ $idsTicketsAFacturar = array();
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 </body>
 </html>

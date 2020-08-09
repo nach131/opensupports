@@ -87,3 +87,23 @@ function ticketFacturadosPorID($idTicket) {
   return $result;
 }
 
+function TodosTicketPorUsiarioID(){
+  $conn = bbddConnect();
+
+  $sql = 'SELECT t.id id_ticket,t.title,t.ticket_number,t.date date_created, te.type,tt.tag_id tag, u.name
+  FROM
+      `ticket` t
+  LEFT JOIN `tag_ticket` tt ON
+      t.id = tt.ticket_id
+  LEFT JOIN `ticketevent` te ON
+      t.id = te.ticket_id
+  LEFT JOIN `user` u ON
+	t.author_id = u.id
+  WHERE
+      t.id AND te.type IN("CLOSE")
+  ORDER BY
+      u.name ASC';
+  $result = $conn->query($sql);
+
+    return $result;
+}

@@ -10,7 +10,7 @@ $idsTicketsAFacturar = array();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tickets Usuarios</title>
+  <title>Facturación Usuarios</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">
@@ -20,14 +20,15 @@ $idsTicketsAFacturar = array();
   
   <main>
     <div class="container">
+<!-- Inicio Tikets por usuario -->
       <div class="row py-5">
         <div class="col">
 
-        <h2 class="h4 bg-warning mb-0 p-4 rounded-top">Tickets del usuario <?php echo $_GET['id']; ?></h2>
+        <h2 class="h4 bg-info mb-0 p-4 rounded-top">Tickets del usuario  <?php echo $_GET['id']; ?></h2>
 
         <?php if ( $tickets->num_rows > 0 ) : ?>
         
-          <table class="table table-striped table-hover ">
+          <table class="table table-hover ">
             <thead class="thead-bg">
               <tr>
                 <th class="table-header" scope="col">Nº Ticket</th>
@@ -70,15 +71,54 @@ $idsTicketsAFacturar = array();
 
         </div>
       </div>
+<!-- Inicio Todos los tikets -->
+<div class="row py-5">
+  <div class="col">
+    <h2 class="h4 bg-info mb-0 p-4 rounded-top">Tickets Cerrados</h2>
+    <?php 
+      $ticketLista = TodosTicketPorUsiarioID();
+      // nach_print_r($ticketLista);
+      ?>
 
+    <table class="table text-center">
+      <thead class="thead-bg">
+          <tr>
+            <th class="table-header" scope="col">Nº Ticket</th>
+            <th class="table-header text-left" scope="col">Usuario</th>
+            <th class="table-header text-left" scope="col">Título</th>
+            <th class="table-header" scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php 
+          while($lista = $ticketLista->fetch_assoc() ) : 
+          $idsTicket[] = $lista['id'];
+          $fechaApertura = date('Y-m-d', strtotime($lista['date_created']));      
+        ?>
+        <tr class="<?php if($lista['tag']==='3')  echo 'facturado' ?>">
+
+          <th scope="row" class="numero"><?php echo $lista['ticket_number']; ?></th>
+          <td class="text-left" ><?php echo $lista['name'];  ?></td>
+          <td class="text-left" ><?php echo $lista['title'];  ?></td>
+          <td><?php echo $fechaApertura; ?></td>
+        </tr>
+        <?php endwhile; ?>
+        </tbody>
+    </table>
+
+  </div>
+</div>
+
+<!-- Ticket Facturados -->
       <div class="row py-5">
         <div class="col">
 
-        <h2 class="h4 bg-warning mb-0 p-4 rounded-top" >Pendientes a facturar.</h2>
+        <h2 class="h4 bg-info mb-0 p-4 rounded-top" >Tickets Facturados</h2>
         <?php
           // nach_print_r($idsTicketsAFacturar);
-          $ticketEvents = ticketAsignadosYCerradosPorID(implode(',', $idsTicketsAFacturar));
+          $ticketEvents = ticketFacturadosPorID(implode(',', $idsTicketsAFacturar));
           // nach_print_r($ticketEvents);
+          // nach_print_r($idsTicketsAFacturar);
 
           $intervalos = array();
         ?>
@@ -111,7 +151,7 @@ $idsTicketsAFacturar = array();
         ?>
 
 
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover text-center">
             <thead class="thead-bg">
               <tr>
                 <th class="table-header" scope="col">Nº Ticket</th>
@@ -145,7 +185,7 @@ $idsTicketsAFacturar = array();
                 <th scope="row" class="numero"><?php echo $ticketNumber; ?></th>
                 <td><?php echo $inicio; ?></td>
                   <?php if ( $fin === '1970-01-01 00:00'): ?>                  
-                    <td class="tag tag_large"><?php echo 'EN PROCESO'; ?></td>
+                    <td><span class="badge badge-primary">EN PROCESO</span></td>
                     <td><?php echo '---'; ?></td>
                   <?php else: ?>
                     <td><?php echo $fin; ?></td>
@@ -156,7 +196,7 @@ $idsTicketsAFacturar = array();
             <?php endforeach; ?>
             <tfoot>
               <tr class="bg-foot">
-                <td colspan="3">Tiempo invertido (en horas)</td>
+                <td class="text-left" colspan="3">Tiempo invertido (en horas)</td>
                 <td><?php echo date('H:i', $tiempo_invertido); ?></td>
               </tr>
             </tfoot>
@@ -168,6 +208,7 @@ $idsTicketsAFacturar = array();
 
         </div>
       </div>
+<!-- Fin Tickets facturados -->
     </div>
   </main>
 

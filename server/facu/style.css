@@ -9,8 +9,32 @@
   background-color: #78909c;
 }
 .table-header {
+  padding-left: 12px !important;
   color: white;
 }
 .table td, .table th {
   padding: .3rem;
+}
+th.numero {
+  padding-left: 15px;
+}
+.bg-info {
+  background-color: rgb(6, 147, 227)!important;
+}
+.bg-noticket{
+  color: white;
+  background-color: #ef5350;
+}
+#candado {
+  padding-right: 5px;
+}
+tr.bg-foot {
+  background-color: #78909c8c;
+}
+
+.badge-primary{
+  background-color: rgb(6, 147, 227);
+}
+.facturado{
+background-color: #9ccc65;
 }
