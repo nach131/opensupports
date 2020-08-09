@@ -397,7 +397,7 @@ class TicketViewer extends React.Component {
     }
 
     onAssignmentChange(event) {
-        AreYouSure.openModal(null, this.assingTo.bind(this, event.index));
+        AreYouSure.openModal('Asinar etiqueta EN PROCESO', this.assingTo.bind(this, event.index));
     }
 
     assingTo(index) {
@@ -429,7 +429,7 @@ class TicketViewer extends React.Component {
 
     onCloseTicketClick(event) {
         event.preventDefault();
-        AreYouSure.openModal(null, this.closeTicket.bind(this));
+        AreYouSure.openModal('Asinar etiqueta FINALIZADO y quitar EN PROCESO', this.closeTicket.bind(this));
     }
 
     onDeleteTicketClick(event) {
