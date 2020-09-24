@@ -76,7 +76,7 @@ $idsTicketsAFacturar = array();
   <div class="col">
     <h2 class="h4 bg-info mb-0 p-4 rounded-top">Tickets Cerrados</h2>
     <?php 
-      $ticketLista = TodosTicketPorUsiarioID();
+      $ticketLista = TodosTicketPorUsuarioID();
       // nach_print_r($ticketLista);
       ?>
 

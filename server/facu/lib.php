@@ -87,7 +87,7 @@ function ticketFacturadosPorID($idTicket) {
   return $result;
 }
 
-function TodosTicketPorUsiarioID(){
+function TodosTicketPorUsuarioID(){
   $conn = bbddConnect();
 
   $sql = 'SELECT t.id id_ticket,t.title,t.ticket_number,t.date date_created, te.type,tt.tag_id tag, u.name
