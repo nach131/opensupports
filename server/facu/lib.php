@@ -7,7 +7,7 @@ function nach_print_r($contenido) {
 }
 
 function bbddConnect() {
-  $conn = mysqli_connect("192.168.1.126", "nacho", "klingon", "soporte");
+  $conn = mysqli_connect("192.168.1.112", "nacho", "klingon", "soporte");
   return $conn;
 }
 
