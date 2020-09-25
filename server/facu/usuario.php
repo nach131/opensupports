@@ -40,7 +40,7 @@ $idsTicketsAFacturar = array();
               while($ticket = $tickets->fetch_assoc() ) : 
               // nach_print_r($ticket);  
               $idsTicketsAFacturar[] = $ticket['id'];
-              $fechaApertura = date('Y-m-d', strtotime($ticket['date']));
+              $fechaApertura = date('j M Y', strtotime($ticket['date']));
               // nach_print_r($fechaApertura);  
 
             ?>
@@ -120,8 +120,8 @@ $idsTicketsAFacturar = array();
             <tbody>
             <?php 
               foreach ($intervalos as $ticketNumber => $intervalo) :
-                $inicio = date('Y-m-d H:i', strtotime($intervalo['ASSIGN']));
-                $fin = date('Y-m-d H:i', strtotime($intervalo['CLOSE']));
+                $inicio = date('j M Y H:i', strtotime($intervalo['ASSIGN']));
+                $fin = date('j M Y H:i', strtotime($intervalo['CLOSE']));
                 $inicioHora = date('H:i', strtotime($intervalo['ASSIGN']));
                 $finHora = date('H:i', strtotime($intervalo['CLOSE']));
                 // $tiempoHoras = $finHora - $inicioHora;
@@ -141,7 +141,7 @@ $idsTicketsAFacturar = array();
                     <td><?php echo '---'; ?></td>
                   <?php else: ?>
                     <td><?php echo $fin; ?></td>
-                    <td><?php echo $tiempoTotal->format('%h:%i'); ?></td>
+                    <td><?php echo $tiempoTotal->format('%H:%I'); ?></td>
                   <?php endif; ?>
 
               </tr>
